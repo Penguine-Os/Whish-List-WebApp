@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@using WishListApp.Models
+@{
+    ViewData["Title"] = "Home page";
+
+}
+
+
+<form method="post">
+    <div class="card-columns">
+        @foreach (var wishItem in Model.listOfWishes)
+        {
+            <div class="card mb-3 border-1 @borderSelector(wishItem)">
+                <div class="card-img" style="background-image: url('@wishItem.ImageLink');">
+                </div>
+                <div class="card-footer">
+
+                    <h5 class="card-title text-white">@wishItem.ItemName</h5>
+
+                    <button asp-page-handler="Update"
+                            asp-route-id="@wishItem.Id"
+                            disabled="@wishItem.IsAcquired"
+                            onclick="return confirm('Are You Sure You Want To Gift This Item?') "
+                            class=" btn   @btnSelector(wishItem)">
+                        @wishItem.StatusMessage
+                    </button>
+
+                </div>
+            </div>
+
+        }
+    </div>
+</form>
+
+@functions {
+    string borderClass { get; set; }
+    string btnClass { get; set; }
+
+    private string borderSelector(WishItem wishItem)
+    {
+        return borderClass = (!wishItem.IsAcquired) ? "border-0" : "border-warning";
+    }
+    private string btnSelector(WishItem wishItem)
+    {
+        return btnClass = (!wishItem.IsAcquired) ? "btn-outline-success" : "btn-outline-danger";
+    }
+}
+
