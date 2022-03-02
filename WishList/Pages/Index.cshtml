@@ -51,15 +51,7 @@
 @functions {
     string borderClass { get; set; }
     string btnClass { get; set; }
-    //string beschrijving { get; set; }
 
-    //private string KortBeschrijving(WishItem wishItem)
-    //{
-    //    @if (!string.IsNullOrWhiteSpace(wishItem.ShortDescription))
-    //    {
-    //        <span>@wishItem.ShortDescription</span>
-    //    }
-    //}
     private string borderSelector(WishItem wishItem)
     {
         return borderClass = (!wishItem.IsAcquired) ? "border-0" : "border-warning";
