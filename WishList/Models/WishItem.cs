@@ -17,6 +17,6 @@ namespace WishListApp.Models
         public bool IsAcquired { get; set; } = false;
 
         public string StatusMessage { get; set; }
-      
+        public int Star { get; set; } = 0;
     }
 }
