@@ -9,8 +9,8 @@ using WishListApp.Services;
 namespace WishList.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220228224221_initialCreation")]
-    partial class initialCreation
+    [Migration("20220302165450_moveTableToDiffrenServer")]
+    partial class moveTableToDiffrenServer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,9 @@ namespace WishList.Migrations
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("text");
+
+                    b.Property<int>("Star")
+                        .HasColumnType("integer");
 
                     b.Property<string>("StatusMessage")
                         .HasColumnType("text");

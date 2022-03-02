@@ -15,14 +15,17 @@
                 <div class="card-img" style="background-image: url('@wishItem.ImageLink');">
                 </div>
                 <div class="card-footer">
-
                     <h5 class="card-title text-white">@wishItem.ItemName</h5>
-
+                    @if (wishItem.ShortDescription != null )
+                    {
+                        <span class="text-secondary">@wishItem.ShortDescription</span>
+                    }
+                   
                     <div class="row">
                         <div class="col-8">
                             @for (var i = 0; i < wishItem.Star; i++)
                             {
-                               <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
                             }
                         </div>
                         <div class="col-4 d-flex justify-content-end">
