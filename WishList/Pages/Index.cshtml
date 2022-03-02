@@ -15,14 +15,17 @@
                 <div class="card-img" style="background-image: url('@wishItem.ImageLink');">
                 </div>
                 <div class="card-footer">
-
                     <h5 class="card-title text-white">@wishItem.ItemName</h5>
-
+                    @if (wishItem.ShortDescription != null )
+                    {
+                        <span class="text-secondary">@wishItem.ShortDescription</span>
+                    }
+                   
                     <div class="row">
                         <div class="col-8">
                             @for (var i = 0; i < wishItem.Star; i++)
                             {
-                               <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
                             }
                         </div>
                         <div class="col-4 d-flex justify-content-end">
@@ -48,7 +51,15 @@
 @functions {
     string borderClass { get; set; }
     string btnClass { get; set; }
+    //string beschrijving { get; set; }
 
+    //private string KortBeschrijving(WishItem wishItem)
+    //{
+    //    @if (!string.IsNullOrWhiteSpace(wishItem.ShortDescription))
+    //    {
+    //        <span>@wishItem.ShortDescription</span>
+    //    }
+    //}
     private string borderSelector(WishItem wishItem)
     {
         return borderClass = (!wishItem.IsAcquired) ? "border-0" : "border-warning";

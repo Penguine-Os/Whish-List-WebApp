@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WishList.Migrations
 {
-    public partial class initialCreation : Migration
+    public partial class moveTableToDiffrenServer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,8 @@ namespace WishList.Migrations
                     ShortDescription = table.Column<string>(type: "text", nullable: true),
                     ImageLink = table.Column<string>(type: "text", nullable: true),
                     IsAcquired = table.Column<bool>(type: "boolean", nullable: false),
-                    StatusMessage = table.Column<string>(type: "text", nullable: true)
+                    StatusMessage = table.Column<string>(type: "text", nullable: true),
+                    Star = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
